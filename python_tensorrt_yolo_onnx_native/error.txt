@@ -1,0 +1,30 @@
+utsma@orin:~/testing/zed-yolo/python_tensorrt_yolo_onnx_native$ python custom_internal_detector.py --custom_onnx best.onnx 
+Initializing Camera...
+[2025-05-12 08:53:28 UTC][ZED][INFO] Logging level INFO
+[2025-05-12 08:53:28 UTC][ZED][INFO] Using GMSL input... Switched to default resolution HD1200
+[2025-05-12 08:53:28 UTC][ZED][INFO] [Init]  Depth mode: NEURAL
+[2025-05-12 08:53:30 UTC][ZED][INFO] [Init]  Camera FW version: 2001
+[2025-05-12 08:53:30 UTC][ZED][INFO] [Init]  Video mode: HD1200@30
+[2025-05-12 08:53:30 UTC][ZED][INFO] [Init]  Serial Number: S/N 46498267
+[2025-05-12 08:53:31 UTC][ZED][WARNING] [Init]  Self-calibration skipped. Scene may be occluded or lack texture. (Error code: 0x01) 
+Initializing Camera... DONE
+Enabling Positional Tracking...
+Enabling Positional Tracking... DONE
+Enabling Object Detection...
+Enabling Object Detection... DONE
+
+
+ Birds eye view hotkeys:
+* Zoom in tracking view            'i'
+* Zoom out tracking view           'o'
+* Exit:                            'q'
+Traceback (most recent call last):
+  File "/home/utsma/testing/zed-yolo/python_tensorrt_yolo_onnx_native/custom_internal_detector.py", line 185, in <module>
+    __main(opt)
+  File "/home/utsma/testing/zed-yolo/python_tensorrt_yolo_onnx_native/custom_internal_detector.py", line 152, in __main
+    cv2.imshow(window_name, global_image)
+cv2.error: OpenCV(4.10.0) /io/opencv/modules/highgui/src/window.cpp:1301: error: (-2:Unspecified error) The function is not implemented. Rebuild the library with Windows, GTK+ 2.x or Cocoa support. If you are on Ubuntu or Debian, install libgtk2.0-dev and pkg-config, then re-run cmake or configure script in function 'cvShowImage'
+
+Segmentation fault (core dumped)
+utsma@orin:~/testing/zed-yolo/python_tensorrt_yolo_onnx_native$ 
+
