@@ -1,4 +1,4 @@
-cap
+
 ## what this will have:
 * subscriber to object detection topic
 * publish map as markerArray, (ie. visualization_msgs/MarkerArray)
