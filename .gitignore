@@ -1,0 +1,8 @@
+/.venv
+/datasets
+/ros2_ws/log
+/ros2_ws/build
+/ros2_ws/install
+/ros2_ws/src/zed-ros2-examples
+/ros2_ws/src/zed-ros2-interfaces
+/ros2_ws/src/zed-ros2-wrapper
