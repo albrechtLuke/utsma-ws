@@ -1,0 +1,5 @@
+argparse
+ultralytics
+opencv-python
+numpy
+pycuda

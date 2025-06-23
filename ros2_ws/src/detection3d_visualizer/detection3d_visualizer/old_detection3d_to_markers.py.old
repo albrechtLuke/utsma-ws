@@ -1,0 +1,59 @@
+import rclpy
+from rclpy.node import Node
+from vision_msgs.msg import Detection3DArray
+from visualization_msgs.msg import Marker, MarkerArray
+
+class Detection3DMarkerPublisher(Node):
+    def __init__(self):
+        super().__init__('detection3d_marker_publisher')
+        self.sub = self.create_subscription(
+            Detection3DArray,
+            '/zed/zed_node/obj_det/objects',
+            self.callback,
+            10)
+        self.pub = self.create_publisher(MarkerArray, '/zed/bbox_markers', 10)
+
+    def callback(self, msg):
+        markers = MarkerArray()
+        for i, det in enumerate(msg.detections):
+            marker = Marker()
+            marker.header = msg.header
+            marker.ns = 'det3d'
+            marker.id = i
+            marker.type = Marker.CUBE
+            marker.action = Marker.ADD
+            marker.pose = det.bbox.center
+            marker.scale = det.bbox.size
+            marker.color.r = 1.0
+            marker.color.g = 1.0
+            marker.color.b = 0.0
+            marker.color.a = 0.6
+            marker.lifetime.sec = 0
+            markers.markers.append(marker)
+
+            # Optional: label marker
+            if det.results:
+                label_marker = Marker()
+                label_marker.header = msg.header
+                label_marker.ns = 'det3d_labels'
+                label_marker.id = 1000 + i
+                label_marker.type = Marker.TEXT_VIEW_FACING
+                label_marker.action = Marker.ADD
+                label_marker.pose = det.bbox.center
+                label_marker.pose.position.z += det.bbox.size.z / 2.0 + 0.05
+                label_marker.scale.z = 0.1
+                label_marker.color.r = 1.0
+                label_marker.color.g = 1.0
+                label_marker.color.b = 1.0
+                label_marker.color.a = 1.0
+                label_marker.text = f"{det.results[0].id} ({det.results[0].score:.2f})"
+                markers.markers.append(label_marker)
+
+        self.pub.publish(markers)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = Detection3DMarkerPublisher()
+    rclpy.spin(node)
+    rclpy.shutdown()
+

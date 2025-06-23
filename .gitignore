@@ -1,0 +1,29 @@
+# OS junk
+.DS_Store
+._.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# ROS 2 build artifacts
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+ros2_ws/bag_files/
+
+# Machine learning artifacts
+*.engine
+*.onnx
+*.pt
+*.cache
+
+# VSCode config
+.vscode/
+
+# Others
+zed-examples/
+v8/
+v12/
+
+

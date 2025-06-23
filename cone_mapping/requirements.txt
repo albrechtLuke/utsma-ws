@@ -1,0 +1,8 @@
+onnxruntime-gpu==1.15.1
+
+numpy==1.23.5
+opencv-python==4.8.0.74
+
+rclpy==2.13.2
+
+geometry_msgs

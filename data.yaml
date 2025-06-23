@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['blue_cone', 'yellow_cone']
+
+roboflow:
+  workspace: utsma
+  project: fsae-cones-dataset
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/utsma/fsae-cones-dataset/dataset/5
