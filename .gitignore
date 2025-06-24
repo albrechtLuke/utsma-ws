@@ -25,5 +25,4 @@ ros2_ws/bag_files/
 zed-examples/
 v8/
 v12/
-
-
+*.swp
